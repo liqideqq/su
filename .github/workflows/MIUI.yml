@@ -33,13 +33,6 @@ jobs:
           make ${args}
           popd
 
-      - name: Package the Kernel (MIUI)
-        run: |
-          cp -v sirius_Kernel/out/arch/arm64/boot/Image.gz AnyKernel3/
-          pushd AnyKernel3
-          7z a -mx9 ../MI8SE_KernelSU_MIUI.zip *
-          popd
-
       - name: Create Config Info
         run: |
           echo "Device: MI 8 SE
