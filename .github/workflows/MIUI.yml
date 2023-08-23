@@ -23,7 +23,7 @@ jobs:
 
       - name: Compile Kernel (MIUI)
         run: |
-          CLANG=~/android_prebuilts_clang_kernel_linux-x86_clang-r416183b/bin
+          CLANG=~/clang/bin
           GCC32=~/arm-linux-androideabi-4.9/bin
           GCC64=~/aarch64-linux-android-4.9/bin
           export PATH=$CLANG:$GCC64:$GCC32:$PATH
