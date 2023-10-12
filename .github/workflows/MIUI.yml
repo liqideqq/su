@@ -1,4 +1,4 @@
-name: KernelSU For nabu (sirius)
+name: KernelSU For nabu
 
 on:
   workflow_dispatch:
@@ -38,20 +38,20 @@ jobs:
         run: |
           cp -v nabu_Kernel/out/arch/arm64/boot/Image.gz AnyKernel3/
           pushd AnyKernel3
-          7z a -mx9 ../nabu_KernelSU_MIUI.zip *
+          7z a -mx9 ../nabu_KernelSU.zip *
           popd
 
       - name: Create Config Info
         run: |
-          echo "Device: MI 8 SE
-          Code: Sirius/Xmsirius
+          echo "Device: Xiaomi tablet 5
+          Code: nabu
           Build Code: ${{ github.run_number }}
           KernelSU For nabu" >> INFO.txt
 
       - name: Upload Kernel Package to GH-Release
         uses: ncipollo/release-action@v1.8.6
         with:
-          artifacts: nabu_KernelSU_MIUI.zip
+          artifacts: nabu_KernelSU.zip
           name: "nabu_KernelSU"
           tag: "${{ github.run_number }}_nabu_KernelSU"
           bodyFile: "INFO.txt"
