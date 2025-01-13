@@ -1,12 +1,11 @@
 name: Build Android 14 GKI Kernels
 
 on:
-  workflow_call:  # This allows this workflow to be called from another workflow
-  
+  workflow_dispatch:  # 手动触发
+
 jobs:
-  build-kernel-a14-kernelsu-susfs:
+  trigger-build:
     runs-on: ubuntu-latest
-    timeout-minutes: 360
 
     steps:
       - name: Maximize build space
